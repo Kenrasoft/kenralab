@@ -8,8 +8,8 @@ Base = declarative_base()
 class Stock_prices_table(Base):
     __tablename__ = 'stockprices'
     symbol = Column(String, primary_key=True)
-    timestamp = Column(DateTime, primary_key=True)  # Change the data type to DateTime
-    name = Column(String)
+    time_stamp = Column(DateTime, primary_key=True)  # Change the data type to DateTime
+    company_name = Column(String)
     price = Column(Float)
     changes_percentage = Column(Float)
     change = Column(Float)
@@ -35,13 +35,13 @@ class Stock_prices_table(Base):
         session = db_connector.connect_db()
         with session() as session:
             for element in json_data:
-                timestamp = datetime.fromtimestamp(element["timestamp"])
-                existing_entry = session.query(Stock_prices_table).filter_by(symbol=element["symbol"], timestamp=timestamp).first()
+                time_stamp = datetime.fromtimestamp(element["timestamp"])
+                existing_entry = session.query(Stock_prices_table).filter_by(symbol=element["symbol"], time_stamp=time_stamp).first()
                 if not existing_entry :
                     stock_entry = Stock_prices_table(
                         symbol=element["symbol"],
-                        timestamp = timestamp,
-                        name=element["name"],
+                        time_stamp = time_stamp,
+                        company_name=element["name"],
                         price=element["price"],
                         changes_percentage=element["changesPercentage"],
                         change=element["change"],
@@ -70,18 +70,18 @@ class Stock_prices_table(Base):
 class Prices_table(Base):
     __tablename__ = 'prices'
     symbol = Column(String, primary_key=True)
-    date = Column(DateTime, primary_key=True)
-    open = Column(Float)
+    time_stamp = Column(DateTime, primary_key=True)
+    open_price = Column(Float)
     high = Column(Float)
     low = Column(Float)
-    close = Column(Float)
+    close_price = Column(Float)
     adj_close = Column(Float)
     volume = Column(Integer)
     unadjusted_volume = Column(Integer)
     change = Column(Float)
     change_percent = Column(Float)
     vwap = Column(Float)
-    label = Column(String)
+    label_name = Column(String)
     change_over_time = Column(Float)
 
     def load_data(self, json_data):
@@ -95,18 +95,18 @@ class Prices_table(Base):
                 #
                 prices_entry = Prices_table(
                     symbol = json_data["symbol"],
-                    date = element["date"],
-                    open = element["open"],
+                    time_stamp = element["date"],
+                    open_price = element["open"],
                     high = element["high"],
                     low = element["low"],
-                    close = element["close"],
+                    close_price = element["close"],
                     adj_close = element["adjClose"],
                     volume = element["volume"],
                     unadjusted_volume = element["unadjustedVolume"],
                     change = element["change"],
                     change_percent = element["changePercent"],
                     vwap = element["vwap"],
-                    label = element["label"],
+                    label_name = element["label"],
                     change_over_time = element["changeOverTime"]
                 )
                 session.add(prices_entry)

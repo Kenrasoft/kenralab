@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, String, Integer
+from sqlalchemy import Column, String, Integer, DateTime
 from pulse.repository.database_connect import DatabaseConnect
 
 Base = declarative_base()
@@ -8,7 +8,7 @@ class SP500_table(Base):
 # Manage all the operations like loading and fetching the data from the SP500 table.
     __tablename__ = 'sp500'
     symbol = Column(String, primary_key=True)
-    name = Column(String)
+    company_name = Column(String)
     sector = Column(String)
     subsector = Column(String)
     headquarter = Column(String)
@@ -25,7 +25,7 @@ class SP500_table(Base):
                 if not existing_entry :
                     sp500_entry = SP500_table(
                         symbol=element["symbol"],
-                        name=element["name"],
+                        company_name=element["name"],
                         sector=element["sector"],
                         subsector=element["subSector"],
                         headquarter=element["headQuarter"],
@@ -71,13 +71,13 @@ class NASDAQ_table(Base):
 
     __tablename__ = 'nasdaq'
     symbol = Column(String, primary_key=True)
-    name = Column(String)
+    company_name = Column(String)
     sector = Column(String)
-    subSector = Column(String)
-    headQuarter = Column(String)
-    dateFirstAdded = Column(String)
+    subsector = Column(String)
+    headquarter = Column(String)
+    datefirstadded = Column(DateTime)
     cik = Column(String)
-    founded = Column(String)
+    founded = Column(DateTime)
 
     def load_data(self, data): 
         db_connector = DatabaseConnect()
@@ -88,11 +88,11 @@ class NASDAQ_table(Base):
                 if not existing_entry :
                     nasdaq_entry = NASDAQ_table(
                         symbol=element["symbol"],
-                        name=element["name"],
+                        company_name=element["name"],
                         sector=element["sector"],
-                        subSector=element["subSector"],
-                        headQuarter=element["headQuarter"],
-                        dateFirstAdded=element["dateFirstAdded"],
+                        subsector=element["subSector"],
+                        headquarter=element["headQuarter"],
+                        datefirstadded=element["dateFirstAdded"],
                         cik=element["cik"],
                         founded=element["founded"]
                     )
@@ -105,13 +105,13 @@ class DOWJONES_table(Base):
 
     __tablename__ = 'dowjones'
     symbol = Column(String, primary_key=True)
-    name = Column(String)
+    company_name = Column(String)
     sector = Column(String)
-    subSector = Column(String)
-    headQuarter = Column(String)
-    dateFirstAdded = Column(String)
+    subsector = Column(String)
+    headquarter = Column(String)
+    datefirstadded = Column(DateTime)
     cik = Column(String)
-    founded = Column(String)
+    founded = Column(DateTime)
 
     def load_data(self, data): 
         db_connector = DatabaseConnect()
@@ -122,11 +122,11 @@ class DOWJONES_table(Base):
                 if not existing_entry :
                     dowjones_entry = DOWJONES_table(
                         symbol=element["symbol"],
-                        name=element["name"],
+                        company_name=element["name"],
                         sector=element["sector"],
-                        subSector=element["subSector"],
-                        headQuarter=element["headQuarter"],
-                        dateFirstAdded=element["dateFirstAdded"],
+                        subsector=element["subSector"],
+                        headquarter=element["headQuarter"],
+                        datefirstadded=element["dateFirstAdded"],
                         cik=element["cik"],
                         founded=element["founded"]
                     )
