@@ -1,4 +1,4 @@
-console.log
+
 //Variabes
 let name ='John';
 console.log(name);
