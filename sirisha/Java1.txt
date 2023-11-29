@@ -1,40 +1,32 @@
-//1.
+//1. Declare a variable name and assign the value "John" to it.
     let firstname = "John"
     console.log(firstname);
 	
 	
-//2.
+//2. Create a variable age and set it to 25.
    let age = "25";
    console.log(age);
    
    
-//3.
+//3. What is the difference between let, const, and var in JavaScript? List all differences
    /*let : It will take only 1st value. We can initialize the varailble only once. 
    const : A constant can only have 1 value that cannnot be changed.
    var : A variable can be recalled (it will replace)*/
-   
-//4.
 
-    /*Primitive data types
-	
-	Boolean
-	
-	
-//5.   
+//5. Create a variable isStudent and set it to true. What data type is isStudent?
 
     var isstudent = true;
     console.log(isstudent);
   
-//6.
+//6. What is the typeof operator used for in JavaScript?
     
 	/*What is the typeof operator used for in JavaScript?
 	typeof operator is used to determine the data type of a variable or an expression
 	ex: var x = "Hello World";
 	console.log(typeof x);*/
 	
-//7.
-
-  /*Convert the string "50" to a number.
+//7. 
+/*Convert the string "50" to a number.
   
     var str = "50";
 	var number = Number(str);
