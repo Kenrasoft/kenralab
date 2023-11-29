@@ -1,0 +1,81 @@
+//1.
+    let firstname = "John"
+    console.log(firstname);
+	
+	
+//2.
+   let age = "25";
+   console.log(age);
+   
+   
+//3.
+   /*let : It will take only 1st value. We can initialize the varailble only once. 
+   const : A constant can only have 1 value that cannnot be changed.
+   var : A variable can be recalled (it will replace)*/
+   
+//4.
+
+    /*Primitive data types
+	
+	Boolean
+	
+	
+//5.   
+
+    var isstudent = true;
+    console.log(isstudent);
+  
+//6.
+    
+	/*What is the typeof operator used for in JavaScript?
+	typeof operator is used to determine the data type of a variable or an expression
+	ex: var x = "Hello World";
+	console.log(typeof x);*/
+	
+//7.
+
+  /*Convert the string "50" to a number.
+  
+    var str = "50";
+	var number = Number(str);
+	console.log(number);
+
+  
+//9. Perform a type conversion to convert a number to a boolean.
+
+     var num = 80;
+	 var boolvalue = Boolean(num);
+	 console.log(boolvalue);
+	 
+//10. Create two variables, num1 and num2, with values 10 and 5. Perform addition, subtraction, multiplication, and division operations on them.
+
+       let value = 10 + 5;
+	   console.log(value);
+	   
+	   let value = 10 - 5;
+	   console.log(value);
+	   
+	   let value = 10 * 5;
+	   console.log(value);
+	   
+	   let value = 10 / 5;
+	   console.log(value);
+    
+	
+//11. Concatenate two strings, "Hello" and "World", using the + operator.
+      
+	  let str1 = "Hello";
+	  let str2 = "World";
+	  let result = str1 + " " + str2;
+	  console.log(result);
+	  
+	  
+//12. What does the % operator do in JavaScript?
+
+
+     The % operator is the remainder operator. It returns the remainder of the division of one number by another.
+	  
+      
+	
+	
+ 
