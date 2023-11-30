@@ -70,7 +70,6 @@ a. Logical OR (||):
       console.log(emailAddress);
 
     
-
 /*
 b. Logical AND (&&):
     Question:
