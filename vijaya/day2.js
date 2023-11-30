@@ -30,8 +30,6 @@ let age = 18;
 let message1 = (age >= 18) ? "Eligible to vote" : "Not eligible to vote";
 console.log(message1);
 
-
-
 /*2. 
 a. Logical OR (||):
     Question:
