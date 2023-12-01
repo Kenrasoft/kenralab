@@ -92,4 +92,4 @@ Can be named or anonymous.
 /*Anonymous Functions:
 
 An anonymous function in JavaScript is a function that has no name.
- An anonymous function has no identification when it is created.
+ An anonymous function has no identification when it is created.*/
