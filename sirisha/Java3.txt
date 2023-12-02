@@ -1,0 +1,40 @@
+*/
+
+
+1. Create an arrow function that returns the length of a string.
+
+  let length = a => a.length;
+  console.log(length("Sirisha"));
+
+*/
+2. Convert the following function to an arrow function.
+function square(x) {
+  return x * x;
+}
+
+
+  let func = (y) => y*y;
+  console.log(func(10));
+
+*/
+3. Implement a function that reverses a string.
+function reversestring(str) {
+    return str.split('').reverse().join('');
+}
+
+  let originalstring= 'Programming';
+  let reversedstring = reversestring(originalstring);
+  console.log(reversedstring); 
+
+
+
+
+
+
+*/
+6. Write differences between all four types of functions in javascript.
+
+ Function Declaration : Function declarations are hoisted to the top of their containing scope, so they can be called before they are defined in the code.
+ Function Expression : Only the variable declaration is hoisted, not the function assignment. Therefore, you cannot call the function before the line where it's defined.
+ Arrow Function : Arrow functions are not hoisted.
+ Generator Function:  Generator function declarations are hoisted, but not the function 
