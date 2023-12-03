@@ -114,7 +114,7 @@ console.log(accumulator1(4));
 // Create a function customLogger that returns a closure. The closure should be a function that, when called with a message, logs the message along with a timestamp.
 function customLogger(){
     return function logMessage(message){
-        const timestamp = new Date().toUTCString();
+        const timestamp = new Date().toLocaleString();
         console.log(`[${timestamp}] ${message}`);
     }
 }
