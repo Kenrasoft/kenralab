@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph Example</title>
+    <style>
+        .highlight {
+            color: green;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Introduce a delay of 5 seconds before making the submit button clickable
+
+            setTimeout(function() {
+                // Make the submit button clickable
+                document.getElementById('sId').removeAttribute('disabled');
+            }, 2000);
+
+            // Add an event listener to the form submission
+            document.getElementById('sId').addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get the value of the entered username
+                var username = document.getElementById('uId').value;
+
+                // Display the username in the paragraph with ID 'pId'
+                document.getElementById('pId').innerText = 'Hello, ' + username + '!';
+            });
+        });
+    </script>
+</head>
+<body>
+
+<!-- Paragraph with ID, Name, and Class -->
+<p id="pId" name="pName" class="highlight">Selenium Element Selectors.</p>
+
+<!-- Element with Name, Tag, and Class -->
+<a href="#" name="linkName" class="highlight">Click me</a>
+
+<!-- Form with Input Text and Button -->
+<form action="/submit" method="post">
+
+  <!-- Input Text with ID, Name, and Tag -->
+  <input type="text" id="uId" name="username" placeholder="Enter your username">
+
+  <!-- Button with ID, Name, and Tag -->
+  <button type="submit" id="sId" name="submitBtn" disabled>Submit</button>
+
+</form>
+
+</body>
+</html>
