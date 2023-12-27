@@ -5,7 +5,7 @@ import time
 
 @pytest.fixture
 def chrome_browser():
-    driver_path = "configuration/chromedriver.exe"
+    driver_path = "../configuration/chromedriver.exe"
     driver = webdriver.Chrome(service=ChromeService(executable_path=driver_path))
     return driver
 
