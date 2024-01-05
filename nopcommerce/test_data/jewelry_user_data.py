@@ -10,3 +10,4 @@ jewelry_user_data = {
     "zip": "75039",
     "phone_number": "1234567890"
 }
+

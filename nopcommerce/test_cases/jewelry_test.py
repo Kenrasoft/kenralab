@@ -1,14 +1,18 @@
 from page_objects.jewelry_page import JewelryPage
-import pytest
-import time
-
 
 class TestJewelPage:
 
-    def test_jewelry_e2e_checkout(self,browser):
+    # Testcase for jewelryPage
+    def test_jewelry_page(self,browser):
         jewelry_page = JewelryPage(browser)       
-        jewelry_page.navigate_to_jewelry_page()         
-        jewelry_page.jewelry_e2e_flow()
+        page_title=jewelry_page.navigate_to_jewelry_page()  
+        print (page_title)
+        assert page_title=="Jewelry"
 
+        page_title=jewelry_page.add_item_to_cart()  
+        print (page_title)
+        assert page_title=="Shopping cart" 
+
+    
 
        

@@ -20,3 +20,4 @@ logs
 # Built artifacts
 build/
 dist/
+__pycache__

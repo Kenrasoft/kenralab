@@ -1,0 +1,71 @@
+from page_objects.jewelry_page import JewelryPage
+from page_objects.billing_address_page import BillingAddressPage
+from page_objects.creditcard_info_page import CreditCardInfoPage
+from page_objects.shipping_method_page import ShippingMethodPage
+from page_objects.payment_method_page import PaymentMethodPage
+from page_objects.order_details_page import OrderDetailsPage
+from page_objects.shopping_cart_page import ShoppingCartPage
+from page_objects.guest_checkout_page import GuestCheckoutPage
+
+class TestJewelE2EPage:    
+
+    # Testcase for Jewelry E2E flow  
+    def test_jewelry_e2e_checkout(self,browser):
+        jewelry_page = JewelryPage(browser)       
+        page_title=jewelry_page.navigate_to_jewelry_page()  
+        print (page_title)
+        assert page_title=="Jewelry"
+
+        page_title=jewelry_page.add_item_to_cart()  
+        print (page_title)
+        assert page_title=="Shopping cart"                
+        
+        # shopping cart page
+        shopping_cart = ShoppingCartPage(browser)
+        page_title2=shopping_cart.shopping_cart_checkout() 
+        print (page_title2)
+        assert page_title2=="Welcome, Please Sign In!"
+
+        # guest checkout page
+        guestcheckout_page = GuestCheckoutPage(browser)
+        page_title3=guestcheckout_page.guest_checkout_page() 
+        print (page_title3)
+        assert page_title3=="Checkout"
+                
+        # billing address
+        billing_address = BillingAddressPage(browser)
+        page_title4=billing_address.update_billing_address()
+        print (page_title4)
+        assert page_title4=="Checkout"
+        
+        # selecting the shipping method
+        shipping_method = ShippingMethodPage(browser)
+        page_title5=shipping_method.update_shipping_method()
+        print (page_title5)
+        assert page_title5=="Checkout"
+
+        # selecting the payment method
+        payment_method = PaymentMethodPage(browser)
+        page_title6=payment_method.update_payment_method()
+        print (page_title6)
+        assert page_title6=="Checkout"
+        
+        
+        # filling credit card information
+        creditcard_info= CreditCardInfoPage(browser)
+        page_title7=creditcard_info.update_credit_card_info()
+        print (page_title7)
+        assert page_title7=="Checkout"
+
+
+        # get order information
+        order_info= OrderDetailsPage(browser)        
+        order_details=order_info.update_order_details()      
+        print("Order details: "+order_details)
+
+        
+
+
+
+
+       
