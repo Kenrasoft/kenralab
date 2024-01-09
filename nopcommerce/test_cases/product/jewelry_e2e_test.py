@@ -1,22 +1,22 @@
-from page_objects.jewelry_page import JewelryPage
-from page_objects.billing_address_page import BillingAddressPage
-from page_objects.creditcard_info_page import CreditCardInfoPage
-from page_objects.shipping_method_page import ShippingMethodPage
-from page_objects.payment_method_page import PaymentMethodPage
-from page_objects.order_details_page import OrderDetailsPage
-from page_objects.shopping_cart_page import ShoppingCartPage
-from page_objects.guest_checkout_page import GuestCheckoutPage
+from page_objects.product.jewelry_list_page import JewelryListPage
+from page_objects.checkout.ckstep2_billing_address_page import BillingAddressPage
+from page_objects.checkout.ckstep5_creditcard_info_page import CreditCardInfoPage
+from page_objects.checkout.ckstep3_shipping_method_page import ShippingMethodPage
+from page_objects.checkout.ckstep4_payment_method_page import PaymentMethodPage
+from page_objects.checkout.ckstep6_order_details_page import OrderDetailsPage
+from page_objects.checkout.ckstep0_shopping_cart_page import ShoppingCartPage
+from page_objects.checkout.ckstep1_guest_checkout_page import GuestCheckoutPage
 
 class TestJewelE2EPage:    
 
     # Testcase for Jewelry E2E flow  
     def test_jewelry_e2e_checkout(self,browser):
-        jewelry_page = JewelryPage(browser)       
-        page_title=jewelry_page.navigate_to_jewelry_page()  
+        jewelry_page = JewelryListPage(browser)       
+        page_title=jewelry_page.navigate_to_product_page()  
         print (page_title)
         assert page_title=="Jewelry"
 
-        page_title=jewelry_page.add_item_to_cart()  
+        page_title=jewelry_page.add_product_to_cart()  
         print (page_title)
         assert page_title=="Shopping cart"                
         

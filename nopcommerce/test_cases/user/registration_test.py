@@ -1,7 +1,7 @@
 import pytest
 from selenium import webdriver
-from page_objects.registration_page import RegistraionPage
-from test_data.registration_data import registration_data,registration_data_invalid
+from page_objects.user.registration_page import RegistraionPage
+from test_data.user.registration_data import registration_data,registration_data_invalid
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 import time
