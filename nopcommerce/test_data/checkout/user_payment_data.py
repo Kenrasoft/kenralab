@@ -1,4 +1,4 @@
-jewelry_user_data = {
+billing_data = {
     "first_name": "Jewel",
     "last_name": "Bracelet",
     "email": "jewel@gmail.com",
@@ -10,4 +10,5 @@ jewelry_user_data = {
     "zip": "75039",
     "phone_number": "1234567890"
 }
+
 

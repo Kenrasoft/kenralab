@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
-
-
+import time
 
 class PaymentMethodPage(BasePage):
 
@@ -13,7 +12,9 @@ class PaymentMethodPage(BasePage):
 
 
     def update_payment_method(self):
+        time.sleep(5)
         self.driver.find_element(*self.check_creditcardoption).click()
         self.driver.find_element(*self.click_continue_button).click()
-        return self.driver.find_element(*self.payment_info_pagetitle).text
-        
+        #return self.driver.find_element(*self.payment_info_pagetitle).text
+    
+    
