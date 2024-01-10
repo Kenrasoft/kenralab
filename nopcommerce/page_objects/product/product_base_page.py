@@ -5,7 +5,6 @@ from selenium.webdriver.support.ui import Select
 
 class ProductBasePage(BasePage):
 
-
     def __init__(self, driver):
         super(ProductBasePage, self).__init__(driver) 
         self.title=(By.CSS_SELECTOR,"div[class='page-title']")
@@ -18,7 +17,6 @@ class ProductBasePage(BasePage):
         self.product_title = (By.CLASS_NAME, 'product-title')
         self.prodct_name = (By.TAG_NAME, 'a')
         self.display_per_page = (By.ID, 'products-pagesize')
-
 
     def navigate_to_product_page(self):               
         self.driver.get(self.url)

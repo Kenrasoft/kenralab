@@ -1,11 +1,8 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from page_objects.base_page import BasePage
-import time
 
 class RegistraionPage(BasePage):
 
@@ -52,7 +49,6 @@ class RegistraionPage(BasePage):
         self.driver.find_element(*self.password_input).send_keys(password)
         self.driver.find_element(*self.confirmpassword_input).send_keys(confirmpassword)
         self.driver.find_element(*self.register_button).click()
-
         self.driver.implicitly_wait(3)
         registration_output_element = self.driver.find_element(*self.registraion_output)
         return registration_output_element.text
@@ -100,7 +96,6 @@ class RegistraionPage(BasePage):
         self.driver.find_element(*self.password_input).send_keys(password)
         self.driver.find_element(*self.confirmpassword_input).send_keys(confirmpassword)        
         self.driver.find_element(*self.register_button).click()
-
         self.driver.implicitly_wait(3)
         registration_output_element = self.driver.find_element(*self.registraion_output)
         return registration_output_element.text
@@ -112,7 +107,6 @@ class RegistraionPage(BasePage):
         self.driver.implicitly_wait(3)  
         return "Login successful"
         
-
     def wait_for_registration_page(self):
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_element_located(self.firstname_input)
