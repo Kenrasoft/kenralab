@@ -17,6 +17,8 @@ class ProductBasePage(BasePage):
         self.product_price = (By.CLASS_NAME, 'price.actual-price')
         self.product_title = (By.CLASS_NAME, 'product-title')
         self.prodct_name = (By.TAG_NAME, 'a')
+        self.display_per_page = (By.ID, 'products-pagesize')
+
 
     def navigate_to_product_page(self):               
         self.driver.get(self.url)
@@ -76,3 +78,35 @@ class ProductBasePage(BasePage):
         product_elements = self.driver.find_elements(*self.product_price)
         sorted_product_prices = [element.text for element in product_elements]
         return sorted_product_prices
+    
+    def display_per_page_three(self):
+        display_per_page = self.driver.find_element(*self.display_per_page)
+        display_per_page.click()
+        select = Select(display_per_page)
+        select.select_by_value("3")
+        time.sleep(2)
+        product_elements = self.driver.find_elements(*self.product_title)
+        products = [element.find_element(*self.prodct_name).text for element in product_elements]
+        return len(products)
+    
+    def display_per_page_six(self):
+        display_per_page = self.driver.find_element(*self.display_per_page)
+        display_per_page.click()
+        select = Select(display_per_page)
+        select.select_by_value("6")
+        time.sleep(2)
+        product_elements = self.driver.find_elements(*self.product_title)
+        products = [element.find_element(*self.prodct_name).text for element in product_elements]
+        return len(products)
+    
+    def display_per_page_nine(self):
+        display_per_page = self.driver.find_element(*self.display_per_page)
+        display_per_page.click()
+        select = Select(display_per_page)
+        select.select_by_value("9")
+        time.sleep(2)
+        product_elements = self.driver.find_elements(*self.product_title)
+        products = [element.find_element(*self.prodct_name).text for element in product_elements]
+        return len(products)
+    
+
