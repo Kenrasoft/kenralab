@@ -15,8 +15,7 @@ class TestBooksListPage (BaseTest):
 
     def test_books_add_item_to_cart(self, browser):
         list_page = BooksListPage(browser)       
-        page_title = list_page.navigate_to_product_page()  
-        
+        list_page.navigate_to_product_page()  
         cart_page_title = list_page.add_product_to_cart()  
         print (cart_page_title)
         assert cart_page_title == "Shopping cart" 
