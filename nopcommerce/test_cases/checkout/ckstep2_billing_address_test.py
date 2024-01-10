@@ -1,29 +1,19 @@
-from page_objects.product.jewelry_list_page import JewelryListPage
-from page_objects.checkout.ckstep0_shopping_cart_page import ShoppingCartPage
-from page_objects.checkout.ckstep1_guest_checkout_page import GuestCheckoutPage
 from page_objects.checkout.ckstep2_billing_address_page import BillingAddressPage
+from utils.pre_reqs import pre_req_welcome_user
+from test_data.product.product_data import product_type
+from utils.pre_reqs import pre_req_billing_address
+
 import pytest
 
 class TestBillingAddressPage:
     @pytest.fixture
-    def setup_method(self,browser):
-        jewelry_page = JewelryListPage(browser)       
-        jewelry_page.navigate_to_product_page()  
+    def setup(self,browser, product_type):
+        pre_req_billing_address(browser, product_type) 
         
-        # adding item to the cart 
-        jewelry_page.add_item_to_cart() 
-
-        # shopping cart page
-        shopping_cart = ShoppingCartPage(browser)
-        shopping_cart.shopping_cart_checkout() 
-        
-        # guest checkout page
-        guestcheckout_page = GuestCheckoutPage(browser)
-        guestcheckout_page.guest_checkout_page() 
-       
-    def test_billing_address(self, browser,setup_method):
-        # billing address
+    
+    @pytest.mark.parametrize("product_type", product_type) 
+    def test_billing_address(self, browser, setup, product_type):
         billing_address = BillingAddressPage(browser)
-        page_title4=billing_address.update_billing_address()
-        print (page_title4)
-        assert page_title4=="Checkout"
+        page_title = billing_address.update_billing_address()
+        print (page_title)
+        assert page_title == "Checkout"

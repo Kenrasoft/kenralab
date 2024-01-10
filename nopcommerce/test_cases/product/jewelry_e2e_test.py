@@ -1,11 +1,11 @@
 from page_objects.product.jewelry_list_page import JewelryListPage
+from page_objects.checkout.ckstep0_shopping_cart_page import ShoppingCartPage
+from page_objects.checkout.ckstep1_welcome_user_page import WelcomeUserPage
 from page_objects.checkout.ckstep2_billing_address_page import BillingAddressPage
 from page_objects.checkout.ckstep5_creditcard_info_page import CreditCardInfoPage
 from page_objects.checkout.ckstep3_shipping_method_page import ShippingMethodPage
 from page_objects.checkout.ckstep4_payment_method_page import PaymentMethodPage
 from page_objects.checkout.ckstep6_order_details_page import OrderDetailsPage
-from page_objects.checkout.ckstep0_shopping_cart_page import ShoppingCartPage
-from page_objects.checkout.ckstep1_guest_checkout_page import GuestCheckoutPage
 
 class TestJewelE2EPage:    
 
@@ -27,8 +27,8 @@ class TestJewelE2EPage:
         assert page_title2=="Welcome, Please Sign In!"
 
         # guest checkout page
-        guestcheckout_page = GuestCheckoutPage(browser)
-        page_title3=guestcheckout_page.guest_checkout_page() 
+        welcome_user_page = WelcomeUserPage(browser)
+        page_title3=welcome_user.checkout_as_guest() 
         print (page_title3)
         assert page_title3=="Checkout"
                 
