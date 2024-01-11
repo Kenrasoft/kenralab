@@ -28,7 +28,7 @@ class TestJewelE2EPage:
 
         # guest checkout page
         welcome_user_page = WelcomeUserPage(browser)
-        page_title3=welcome_user.checkout_as_guest() 
+        page_title3=welcome_user_page.checkout_as_guest() 
         print (page_title3)
         assert page_title3=="Checkout"
                 

@@ -1,2 +1,4 @@
 product_type = [
-    "jewelry"]
+    "cellphones",
+    "jewelry",
+    "books"]

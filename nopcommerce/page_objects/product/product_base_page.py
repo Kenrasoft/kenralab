@@ -107,4 +107,17 @@ class ProductBasePage(BasePage):
         products = [element.find_element(*self.prodct_name).text for element in product_elements]
         return len(products)
     
+    def grid_view(self):
+        view_mode_div = self.driver.find_element(By.CLASS_NAME, 'product-viewmode')
+        grid_view_option = view_mode_div.find_element(By.CSS_SELECTOR, 'a[data-viewmode="grid"]')
+        grid_view_option.click()
+        return grid_view_option
+    
+    def list_view(self):
+        view_mode_div = self.driver.find_element(By.CLASS_NAME, 'product-viewmode')
+        list_view_option = view_mode_div.find_element(By.CSS_SELECTOR, 'a[data-viewmode="list"]')
+        list_view_option.click()
+        time.sleep(2)
+        return list_view_option
+    
 

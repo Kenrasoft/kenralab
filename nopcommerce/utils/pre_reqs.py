@@ -1,5 +1,6 @@
 from page_objects.product.jewelry_list_page import JewelryListPage
 from page_objects.product.books_list_page import BooksListPage
+from page_objects.product.cellphones_list_page import CellphonesListPage
 from page_objects.checkout.ckstep0_shopping_cart_page import ShoppingCartPage
 from page_objects.checkout.ckstep1_welcome_user_page import WelcomeUserPage
 from page_objects.checkout.ckstep2_billing_address_page import BillingAddressPage
@@ -14,6 +15,8 @@ def pre_req_shopping_cart(browser, product_type):
         list_page = JewelryListPage(browser)
     elif(product_type == "books"):
         list_page = BooksListPage(browser)
+    elif(product_type == "cellphones"):
+        list_page = CellphonesListPage(browser)
     
     if(list_page):
         list_page.navigate_to_product_page()              
