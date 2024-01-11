@@ -1,6 +1,8 @@
 from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
 class ProductBasePage(BasePage):
@@ -11,7 +13,7 @@ class ProductBasePage(BasePage):
         self.addtocart = (By.CLASS_NAME, "product-box-add-to-cart-button")
         self.shoppingcart_link=(By.XPATH,"//a[normalize-space()='Shopping cart']") 
         self.click_shoppingcart=(By.XPATH, "//span[@class='cart-label']") 
-        self.shopping_cart_title=(By.CSS_SELECTOR,"div[class='page-title'] h1")
+        self.page_title=(By.CSS_SELECTOR,"div[class='page-title'] h1")
         self.sort_by = (By.ID, 'products-orderby')
         self.product_price = (By.CLASS_NAME, 'price.actual-price')
         self.product_title = (By.CLASS_NAME, 'product-title')
@@ -33,7 +35,7 @@ class ProductBasePage(BasePage):
         shoppingcart_link_element = self.driver.find_element(*self.shoppingcart_link)
         shoppingcart_link_element.click()
         time.sleep(5)
-        title = self.driver.find_element(*self.shopping_cart_title)
+        title = self.driver.find_element(*self.page_title)
         print(f"Title of cart: {title.text}")
         return title.text
     
@@ -119,5 +121,30 @@ class ProductBasePage(BasePage):
         list_view_option.click()
         time.sleep(2)
         return list_view_option
+    
+    def compare(self):
+        # Locate and click the "Add to compare list" button
+        compare_button = self.driver.find_element(By.CLASS_NAME, 'button-2.add-to-compare-list-button')
+        compare_button.click()
+        notification = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, 'bar-notification.success'))
+        )
+        notification_link = notification.find_element(By.CSS_SELECTOR, 'a[href="/compareproducts"]')
+        notification_link.click()
+        title = self.driver.find_element(*self.page_title)
+        return title.text
+    
+    def wishlist(self):
+        wishlist_button = self.driver.find_element(By.CLASS_NAME, 'button-2.add-to-wishlist-button')
+        wishlist_button.click()
+        notification = WebDriverWait(self.driver, 10).until(
+            EC.visibility_of_element_located((By.CLASS_NAME, 'bar-notification.success'))
+        )
+        notification_link = notification.find_element(By.CSS_SELECTOR, 'a[href="/wishlist"]')
+        notification_link.click()
+        title = self.driver.find_element(*self.page_title)
+        return title.text
+
+
     
 

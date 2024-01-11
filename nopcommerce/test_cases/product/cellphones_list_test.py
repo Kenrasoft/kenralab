@@ -76,3 +76,17 @@ class TestCellphonesListPage (BaseTest):
         cellphones_list_page.navigate_to_product_page()  
         list_view = cellphones_list_page.list_view()
         assert "selected" in list_view.get_attribute("class")
+
+    def test_cellphones_compare(self, browser):
+        cellphones_list_page = CellphonesListPage(browser)       
+        cellphones_list_page.navigate_to_product_page()
+        compare_page_title = cellphones_list_page.compare()
+        assert compare_page_title == "Compare products"
+
+    def test_cellphones_wishlist(self, browser):
+        cellphones_list_page = CellphonesListPage(browser)       
+        cellphones_list_page.navigate_to_product_page()
+        wishlist_page_title = cellphones_list_page.wishlist()
+        assert wishlist_page_title == "Wishlist"
+
+    
